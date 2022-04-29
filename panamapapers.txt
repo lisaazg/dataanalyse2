@@ -18,13 +18,40 @@ Je n'ai pas trouvé l'adresse et son pays
 
 Combien la base contient-elle de bénéficiaires avec un nom unique ? Quel est le bénéficiaire dont le nom revient le plus souvent ?
 
+SELECT DISTINCT name, GROUP_CONCAT (id)
+FROM entity
+GROUP BY name
+ORDER BY COUNT(*) DESC
+limit 1
+
+Réponse trouvée : SUNMEAD MANAGEMENT LIMITED 
 
 
 Donner la liste des juridictions avec le nombre d'entreprises offshores enregistrées sur chaque territoire, triée par ordre décroissant.
 
+SELECT COUNT(DISTINCT jurisdiction_description), GROUP_CONCAT(DISTINCT jurisdiction)
+FROM entity
+ORDER BY (name) DESC
+
+Réponse trouvée : Avec ça on trouve qu'il ya 21 juridictions
+
+Celle qui revient le plus souvent d'après mes recherches est SAMOA  
+
+
 Regrouper les sociétés offshores par statut, et trier la liste par ordre décroissant.
 
+SELECT (name)
+FROM entity
+GROUP BY status
+ORDER by COUNT (*) DESC
+
+Réponse trouvée : Première entreprise TIANSHENG, seconde Bid data crunsher, derniere entreprise GUVVEL
+
+
+
 Trouver la liste des bénéficiaires dont le nom contient "BNP" et ajouter, pour chaque bénéficiaire, le nom des sociétés offshores.
+
+
 
 Trouver la liste des sociétés dont la juridiction est "France", "Monaco" ou "Réunion".
 
