@@ -1,0 +1,48 @@
+Récupérer tous les albums
+
+	SELECT title FROM albums
+
+
+Récupérer tous les albums dont le titre contient "Great" (indice)
+
+	SELECT title FROM albums
+	WHERE title LIKE '%Great%'
+
+Donner le nombre total d'albums contenus dans la base (sans regarder les id bien sûr)
+
+	SELECT COUNT(albumid) FROm albums
+
+Supprimer tous les albums dont le nom contient "music"
+
+	DELETE FROM albums
+	WHERE music = 1
+
+Récupérer tous les albums écrits par AC/DC
+
+	SELECT title FROM albums
+	GROUP by artistid LIKE '%AC/DC%'
+
+J'en trouve un seul "for those about to rock we salute you"
+
+Récupérer tous les titres des albums de AC/DC
+
+	SELECT name FROM tracks
+	GROUP by composer LIKE '%AC/DC%'
+
+Bizzare j'en trouve seulement 3 : For those about to rock, balls to the wall, ga down
+
+Récupérer la liste des titres de l'album "Let There Be Rock"
+
+	SELECT trackid FROM tracks
+	GROUP by name LIKE '%Let there be rock%'
+
+pas de réponse 
+
+Afficher le prix de cet album ainsi que sa durée totale
+
+
+
+Afficher le coût de l'intégralité de la discographie de "Deep Purple"
+
+
+Créer l'album de ton artiste favori en base, en renseignant correctement les trois tables albums, artists et tracks
